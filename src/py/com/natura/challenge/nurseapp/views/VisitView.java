@@ -10,7 +10,7 @@ import static java.lang.System.out;
 
 /**
  * @author Miguel Martinez
- * @mail miguel.martinez@konecta.com.py
+ * @mail mickygates27@gmail.com
  * Fecha 27/07/19
  */
 public class VisitView {

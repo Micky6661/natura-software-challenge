@@ -10,13 +10,20 @@ import java.util.Map;
 
 /**
  * @author Miguel Martinez
- * @mail miguel.martinez@konecta.com.py
+ * @mail mickygates27@gmail.com
  * Fecha 27/07/19
  */
 public class VisitController {
 
-    VisitDAO dao = new VisitDAO();
-    PressureRateValuesDAO daoB = new PressureRateValuesDAO();
+    VisitDAO dao;
+    PacientController pacientController;
+    PressureRateValuesDAO daoB;
+
+    public VisitController() {
+        this.dao = new VisitDAO();
+        this.pacientController = new PacientController();
+        this.daoB = new PressureRateValuesDAO();
+    }
 
     public Visit getVisit(Integer id) {
         return dao.selectById(id);
@@ -27,7 +34,10 @@ public class VisitController {
     }
 
     public String insertVisit(Visit visit) {
-        visit.setVisitId(dao.getNext());
+        if (pacientController.getPacient(visit.getPacientId()) != null)
+            visit.setVisitId(dao.getNext());
+        else
+            return "Pacient not exist";
         return dao.insert(visit);
     }
 
