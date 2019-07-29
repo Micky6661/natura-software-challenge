@@ -15,6 +15,7 @@ import static java.lang.System.out;
  */
 public class VisitView {
 
+    private MainMenu mainMenu;
     private VisitController controller;
     private Scanner s;
 
@@ -43,6 +44,10 @@ public class VisitView {
                 break;
             case 4:
                 delete();
+                break;
+            case 0:
+                mainMenu = new MainMenu();
+                mainMenu.show();
                 break;
             default:
                 break;

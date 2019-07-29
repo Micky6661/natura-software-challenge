@@ -48,7 +48,7 @@ public class PacientDAO {
         }
     }
 
-    public String delete(Pacient pacient) {
+    public String delete(Integer pacient) {
         if (selectById(pacient.getPacientId()) != null) {
             for (int i = 0; i < pacientTableSimulation.size(); i++) {
                 if (pacientTableSimulation.get(i).getPacientId().equals(pacient.getPacientId())) {
