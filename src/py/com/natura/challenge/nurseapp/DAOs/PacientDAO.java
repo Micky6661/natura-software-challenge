@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class PacientDAO {
 
-    List<Pacient> pacientTableSimulation = new ArrayList<>();
+    private List<Pacient> pacientTableSimulation = new ArrayList<>();
 
     public Pacient selectById(Integer id) {
         for (Pacient v : pacientTableSimulation) {
@@ -31,9 +31,8 @@ public class PacientDAO {
         if (selectById(pacient.getPacientId()) == null) {
             pacientTableSimulation.add(pacient);
             return "Added";
-        } else {
-            return "Not Added";
         }
+        return "Not Added";
     }
 
     public String update(Pacient pacient) {
@@ -48,10 +47,10 @@ public class PacientDAO {
         }
     }
 
-    public String delete(Integer pacient) {
-        if (selectById(pacient.getPacientId()) != null) {
+    public String delete(Integer pacientId) {
+        if (selectById(pacientId) != null) {
             for (int i = 0; i < pacientTableSimulation.size(); i++) {
-                if (pacientTableSimulation.get(i).getPacientId().equals(pacient.getPacientId())) {
+                if (pacientTableSimulation.get(i).getPacientId().equals(pacientId)) {
                     pacientTableSimulation.remove(i);
                     return "Deleted";
                 }

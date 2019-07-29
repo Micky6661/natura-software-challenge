@@ -1,6 +1,6 @@
 package py.com.natura.challenge.nurseapp;
 
-import py.com.natura.challenge.nurseapp.views.VisitView;
+import py.com.natura.challenge.nurseapp.views.MainMenu;
 
 /**
  * @author Miguel Martinez
@@ -10,7 +10,7 @@ import py.com.natura.challenge.nurseapp.views.VisitView;
 public class Main {
 
     public static void main(String[] args) {
-        VisitView v = new VisitView();
-        v.menu();
+        MainMenu v = new MainMenu();
+        v.show();
     }
 }

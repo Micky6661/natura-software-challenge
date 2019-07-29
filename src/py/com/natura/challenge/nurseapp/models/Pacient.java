@@ -48,4 +48,11 @@ public class Pacient {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return " pacientId=" + pacientId +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age;
+    }
 }

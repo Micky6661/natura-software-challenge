@@ -1,5 +1,6 @@
 package py.com.natura.challenge.nurseapp.views;
 
+import py.com.natura.challenge.nurseapp.controllers.PacientController;
 import py.com.natura.challenge.nurseapp.models.Pacient;
 
 import java.util.Scanner;
@@ -13,11 +14,12 @@ import static java.lang.System.out;
  */
 public class PacientView {
 
-    PacientController controller = new PacientController();
-    Scanner s;
+    private PacientController controller;
+    private Scanner s;
 
     public PacientView() {
         s = new Scanner(System.in);
+        controller = new PacientController();
     }
 
     public void menu() {
@@ -26,6 +28,7 @@ public class PacientView {
         out.println("2. Add new");
         out.println("3. Update");
         out.println("4. Delete");
+        out.println("0. Exit");
         switch (s.nextInt()) {
             case 1:
                 toList();
@@ -53,6 +56,7 @@ public class PacientView {
         for (Pacient v : controller.getAllPacients()) {
             out.println(v.toString());
         }
+        out.println("Press 0 to exit");
         if (s.nextInt() == 0)
             menu();
     }
@@ -60,6 +64,7 @@ public class PacientView {
     private void create() {
         out.println("Add new Pacient");
         out.println(controller.insertPacient(collectInfo(null)));
+        out.println("Press 0 to exit");
         if (s.nextInt() == 0)
             menu();
     }
@@ -70,6 +75,7 @@ public class PacientView {
         out.println("Set Pacient ID to edit: ");
         visitToEdit = controller.getPacient(s.nextInt());
         out.println(controller.updatePacient(collectInfo(visitToEdit)));
+        out.println("Press 0 to exit");
         if (s.nextInt() == 0)
             menu();
     }
@@ -78,6 +84,7 @@ public class PacientView {
         out.println("Update Pacient");
         out.println("Set Pacient ID to delete: ");
         out.println(controller.deletePacient(s.nextInt()));
+        out.println("Press 0 to exit");
         if (s.nextInt() == 0)
             menu();
     }

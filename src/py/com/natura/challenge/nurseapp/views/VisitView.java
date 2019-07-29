@@ -31,7 +31,7 @@ public class VisitView {
         out.println("2. Add new");
         out.println("3. Update");
         out.println("4. Delete");
-        Scanner s = new Scanner(System.in);
+        out.println("0. Exit");
         switch (s.nextInt()) {
             case 1:
                 toList();
@@ -60,6 +60,7 @@ public class VisitView {
         for (Visit v : controller.getAllVisits()) {
             out.println(v.toString());
         }
+        out.println("Press 0 to exit");
         if (s.nextInt() == 0)
             menu();
     }
@@ -67,6 +68,7 @@ public class VisitView {
     private void create() {
         out.println("Add new visit");
         out.println(controller.insertVisit(collectInfo(null)));
+        out.println("Press 0 to exit");
         if (s.nextInt() == 0)
             menu();
     }
@@ -77,6 +79,7 @@ public class VisitView {
         out.println("Set Visit ID to edit: ");
         visitToEdit = controller.getVisit(s.nextInt());
         out.println(controller.updateVisit(collectInfo(visitToEdit)));
+        out.println("Press 0 to exit");
         if (s.nextInt() == 0)
             menu();
     }
@@ -85,6 +88,7 @@ public class VisitView {
         out.println("Update visit");
         out.println("Set Visit ID to delete: ");
         out.println(controller.deleteVisit(s.nextInt()));
+        out.println("Press 0 to exit");
         if (s.nextInt() == 0)
             menu();
     }
@@ -100,7 +104,6 @@ public class VisitView {
         v.setHeartRate(s.nextInt());
         out.println("Patient Status: " + controller.checkPressureAndRate(v.getBloodPressure(), v.getHeartRate()));
         v.setObservation(controller.checkPressureAndRate(v.getBloodPressure(), v.getHeartRate()));
-        out.println("Press 0 and Enter to exit");
         return v;
     }
 }
